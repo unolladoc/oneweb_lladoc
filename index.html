@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/app/crypto.js"></script>
+
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+</head>
+
+<body>
+    <div id="main" ng-app='crypto' ng-controller='myCtrl'>
+        <form ng-submit="convert()">
+            <div>
+                <select g-model='cryptocurrency'>
+                    <option value="">Select Cryptocurrency</option>
+                    <option ng-repeat='c in crypt' value="{{ c.key }}">{{ c.key }} - {{ c.value }}</option>
+                </select>
+            </div>
+            <div>
+                <input ng-model="crypto_input" type="number">
+            </div>
+            <div>
+                <select ng-model='currency'>
+                    <option value="">Select Currency</option>
+                    <option ng-repeat='f in curr' value="{{ f.key }}">{{ f.key }} - {{ f.value }}</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Convert">
+            </div>
+            <div>
+                <label>Result</label><br>
+                <input ng-model="curr_output" type="number" disabled>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
